@@ -5,6 +5,7 @@ public class Home {
     public static void main(String[] args) throws IOException {
         DealershipFileManager fileManager = new DealershipFileManager(new File("inventory.csv"));
         Dealership d = fileManager.getDealership();
-        System.out.println(d.getVehiclesByPriceRequest(995,2000));
+        UserInterface ui = new UserInterface(d);
+        ui.display();
     }
 }

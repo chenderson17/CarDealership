@@ -26,18 +26,13 @@ public class DealershipFileManager {
         dealership.changeInventory(inventory);
         return dealership;
     }
+    public void saveDealership(){
+
+    }
     //helper methods;
     public String[] parse(String parse){
         return parse.split("\\|");
     }
 
-    public static void main(String[] args) throws IOException {
-        DealershipFileManager fileManager = new DealershipFileManager(new File("Inventory.csv"));
-        Dealership usedCars = fileManager.getDealership();
-        for(Vehicle vehicle : usedCars.getInventory()){
-            System.out.println(vehicle.toString());
-        }
-
-    }
 
 }

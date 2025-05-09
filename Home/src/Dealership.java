@@ -1,3 +1,4 @@
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,35 +44,68 @@ public class Dealership {
 
     //Search Methods
     public List<Vehicle> getVehiclesByPriceRequest(double min, double max){
-        List<Vehicle> priceRequestResult = new ArrayList<>();
+        List<Vehicle> result = new ArrayList<>();
         for(Vehicle vehicle : inventory){
             if(vehicle.getPrice() >= min && vehicle.getPrice() <= max ){
-                priceRequestResult.add(vehicle);
+                result.add(vehicle);
             }
         }
-        return priceRequestResult;
+        return result;
     }
-    /*
-    public List<Vehicle> getVehiclesByMakeModelRequest(String make, String model){
 
+    public List<Vehicle> getVehiclesByMakeModelRequest(String make, String model){
+        List<Vehicle> result = new ArrayList<>();
+        for(Vehicle vehicle: inventory){
+            if(vehicle.getMake() == make || vehicle.getModel() == model){
+                result.add(vehicle);
+            }
+        }
+        return result;
     }
     public List<Vehicle> getVehiclesByYearRequest(int min,int max){
+        List<Vehicle> result = new ArrayList<>();
+        for(Vehicle v : inventory){
+            if(v.year()>= min && v.year()<=max){
+                result.add(v);
+            }
 
+        }
+        return result;
     }
     public List<Vehicle> getVehiclesByColorRequest(String color){
-
+        List<Vehicle> result = new ArrayList<>();
+        for(Vehicle v : inventory){
+            if(v.getColor().equals(color)){
+                result.add(v);
+            }
+        }
+        return result;
     }
-    public List<Vehicle> getByMileageRequest(){
-
+    public List<Vehicle> getByMileageRequest(int max){
+        List<Vehicle> result = new ArrayList<>();
+        for(Vehicle v: inventory){
+            if(v.getOdometer() <= max){
+                result.add(v);
+            }
+        }
+        return result;
     }
-    public List<Vehicle> getByVehicleTypeRequest(){
-
+    public List<Vehicle> getByVehicleTypeRequest(String type{
+        List<Vehicle> result = new ArrayList<>();
+        for(Vehicle v : inventory){
+            if(v.getVehicleType().equals(type)){
+                result.add(v);
+            }
+        }
+        return result;
     }
-    public List<Vehicle> addVehicleRequest(){
-
+    public List<Vehicle> addVehicleRequest(int vin, int year, String make, String model, String vehicleType,String color, int odometer,double price){
+        inventory.add(new Vehicle(vin,year,make,model,vehicleType,color,odometer,price));
+        return inventory;
     }
-    public List<Vehicle> removeVehicleReuqest(){
-
+    public List<Vehicle> removeVehicleRequest(int index){
+        inventory.remove(index);
+        return inventory;
     }
-     */
+
 }

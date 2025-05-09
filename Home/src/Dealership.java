@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Dealership {
     private String name;
@@ -36,15 +37,21 @@ public class Dealership {
     public void changePhone(String phone){
         this.phone = phone;
     }
-
     public void changeInventory(ArrayList<Vehicle> inventory){
         this.inventory = inventory;
     }
-    /*
-    //Search Methods
-    public List<Vehicle> getVehiclesByPriceRequest(int min, int max){
 
+    //Search Methods
+    public List<Vehicle> getVehiclesByPriceRequest(double min, double max){
+        List<Vehicle> priceRequestResult = new ArrayList<>();
+        for(Vehicle vehicle : inventory){
+            if(vehicle.getPrice() >= min && vehicle.getPrice() <= max ){
+                priceRequestResult.add(vehicle);
+            }
+        }
+        return priceRequestResult;
     }
+    /*
     public List<Vehicle> getVehiclesByMakeModelRequest(String make, String model){
 
     }
@@ -66,6 +73,5 @@ public class Dealership {
     public List<Vehicle> removeVehicleReuqest(){
 
     }
-    */
-
+     */
 }

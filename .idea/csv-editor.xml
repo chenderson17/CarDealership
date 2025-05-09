@@ -3,7 +3,21 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
+        <entry key="C:\Users\carol\AppData\Local\Temp\Rar$DRa5672.7481\WorkshopFiles\inventory.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="|" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\WorkshopFiles\inventory.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="|" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\inventory.csv">
           <value>
             <Attribute>
               <option name="separator" value="|" />

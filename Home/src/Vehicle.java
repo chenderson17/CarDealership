@@ -1,12 +1,12 @@
 public class Vehicle {
-    int vin;
-    int year;
-    String make;
-    String model;
-    String vehicleType;
-    String color;
-    int odometer;
-    double price;
+    private int vin;
+    private int year;
+    private String make;
+    private String model;
+    private String vehicleType;
+    private String color;
+    private int odometer;
+    private double price;
     Vehicle(int vin, int year, String make, String model, String vehicleType,String color, int odometer,double price){
         this.vin = vin;
         this.year = year;
@@ -66,6 +66,10 @@ public class Vehicle {
     }
     public void setPrice(Double price){
         this.price = price;
+    }
+    @Override
+    public String toString(){
+        return String.format("Vin:%d|Year:%d|Make:%s|Model:%s|Vehicle Type:%s|Color:%s|Odometer:%d|Price:$%.2f",vin,year,make,model,vehicleType,color,odometer,price);
     }
 
 }

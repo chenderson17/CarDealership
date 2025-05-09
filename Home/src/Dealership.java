@@ -4,9 +4,7 @@ public class Dealership {
     private String name;
     private String address;
     private String phone;
-    /*
     private ArrayList<Vehicle> inventory = new ArrayList<>();
-    */
     Dealership(String name, String address, String phone){
         this.name = name;
         this.address = address;
@@ -23,11 +21,11 @@ public class Dealership {
     public String phone(){
         return phone;
     }
-    /*
+
     public ArrayList<Vehicle> getInventory(){
         return inventory;
     }
-     */
+
     //Setter methods
     public void changeName(String name){
         this.name = name;
@@ -38,10 +36,11 @@ public class Dealership {
     public void changePhone(String phone){
         this.phone = phone;
     }
-    /*
+
     public void changeInventory(ArrayList<Vehicle> inventory){
         this.inventory = inventory;
     }
+    /*
     //Search Methods
     public List<Vehicle> getVehiclesByPriceRequest(int min, int max){
 
@@ -68,6 +67,5 @@ public class Dealership {
 
     }
     */
-
 
 }

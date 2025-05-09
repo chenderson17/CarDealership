@@ -90,7 +90,7 @@ public class Dealership {
         }
         return result;
     }
-    public List<Vehicle> getByVehicleTypeRequest(String type{
+    public List<Vehicle> getByVehicleTypeRequest(String type){
         List<Vehicle> result = new ArrayList<>();
         for(Vehicle v : inventory){
             if(v.getVehicleType().equals(type)){

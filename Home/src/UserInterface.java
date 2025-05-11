@@ -34,6 +34,13 @@ public class UserInterface {
                     processGetByPriceRequest(min,max);
                     scanner.nextLine();
                     break;
+                case "2":
+                    System.out.printf("Enter the make: ");
+                    String make = scanner.nextLine();
+                    System.out.printf("Enter the model: ");
+                    String model = scanner.nextLine();
+                    processGetByMakeModelRequest(make,model);
+                    break;
             }
             System.out.print(menu);
             in = scanner.nextLine();
@@ -46,8 +53,9 @@ public class UserInterface {
         }
 
     }
-    public void processGetByMakeModelRequest(){
-
+    public void processGetByMakeModelRequest(String make, String model){
+        List<Vehicle> result = dealership.getVehiclesByMakeModelRequest(make,model);
+        printResults(result);
     }
     public void processGetByYearRequest(){
 
@@ -69,5 +77,11 @@ public class UserInterface {
     }
     public void processRemoveVehicleRequest(){
 
+    }
+    //helper
+    public void printResults(List<Vehicle> result){
+        for(int index = 0; index < result.size(); index++){
+            System.out.println(index + 1 + "." + result.get(index));
+        }
     }
 }

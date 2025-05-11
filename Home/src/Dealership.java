@@ -56,7 +56,7 @@ public class Dealership {
     public List<Vehicle> getVehiclesByMakeModelRequest(String make, String model){
         List<Vehicle> result = new ArrayList<>();
         for(Vehicle vehicle: inventory){
-            if(vehicle.getMake() == make || vehicle.getModel() == model){
+            if(vehicle.getMake().toLowerCase().contains(make.toLowerCase()) && !make.isEmpty() || vehicle.getModel().toLowerCase().contains(model.toLowerCase()) && !model.isEmpty()){
                 result.add(vehicle);
             }
         }

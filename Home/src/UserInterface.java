@@ -21,7 +21,7 @@ public class UserInterface {
                                     Press 0 to exit
                                     Your Input: 
                                     """);
-        System.out.println(menu);
+        System.out.print(menu);
         String in = scanner.nextLine();
         while(!in.equals("0")){
             switch (in){
@@ -29,39 +29,49 @@ public class UserInterface {
                     System.out.print("Enter the minimum price: ");
                     int min = scanner.nextInt();
                     scanner.nextLine();
-                    System.out.printf("Enter the maximum price: ");
+                    System.out.print("Enter the maximum price: ");
                     int max = scanner.nextInt();
                     processGetByPriceRequest(min,max);
                     scanner.nextLine();
                     break;
                 case "2":
-                    System.out.printf("Enter the make: ");
+                    System.out.print("Enter the make: ");
                     String make = scanner.nextLine();
-                    System.out.printf("Enter the model: ");
+                    System.out.print("Enter the model: ");
                     String model = scanner.nextLine();
                     processGetByMakeModelRequest(make,model);
                     break;
+                case "3":
+                    System.out.print("Enter the year: ");
+                    String year = scanner.nextLine();
+                    processGetByYearRequest(year);
+                    break;
+                case "4":
+                    System.out.print("Enter the color: ");
+                    String color = scanner.nextLine();
+                    processGetByColorRequest(color);
+                    break;
+                default:
+                    System.out.println("Sorry, I didn't understand that command.");
+                    break;
+
             }
             System.out.print(menu);
             in = scanner.nextLine();
         }
     }
     public void processGetByPriceRequest(double min, double max){
-        List<Vehicle> result = dealership.getVehiclesByPriceRequest(min,max);
-        for(int index = 0; index < result.size(); index++){
-            System.out.println(index + 1 + "." + result.get(index));
-        }
+        printResults(dealership.getVehiclesByPriceRequest(min,max));
 
     }
     public void processGetByMakeModelRequest(String make, String model){
-        List<Vehicle> result = dealership.getVehiclesByMakeModelRequest(make,model);
-        printResults(result);
+        printResults(dealership.getVehiclesByMakeModelRequest(make,model));
     }
-    public void processGetByYearRequest(){
-
+    public void processGetByYearRequest(String year){
+        printResults(dealership.getVehiclesByYearRequest(Integer.valueOf(year)));
     }
-    public void processGetByColorRequest(){
-
+    public void processGetByColorRequest(String color){
+        printResults(dealership.getVehiclesByColorRequest(color));
     }
     public void processGetByMileageRequest(){
 

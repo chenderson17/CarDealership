@@ -1,4 +1,3 @@
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,10 +61,10 @@ public class Dealership {
         }
         return result;
     }
-    public List<Vehicle> getVehiclesByYearRequest(int min,int max){
+    public List<Vehicle> getVehiclesByYearRequest(int min){
         List<Vehicle> result = new ArrayList<>();
         for(Vehicle v : inventory){
-            if(v.year()>= min && v.year()<=max){
+            if(v.year() == min){
                 result.add(v);
             }
 
@@ -75,7 +74,7 @@ public class Dealership {
     public List<Vehicle> getVehiclesByColorRequest(String color){
         List<Vehicle> result = new ArrayList<>();
         for(Vehicle v : inventory){
-            if(v.getColor().equals(color)){
+            if(v.getColor().toLowerCase().equals(color.toLowerCase())){
                 result.add(v);
             }
         }

@@ -17,7 +17,9 @@ public class UserInterface {
                                     Press 4 to filter Vehicles by Color
                                     Press 5 to filter Vehicles by Mileage
                                     Press 6 to get all Vehicles
-                                    Press 7 to remove a Vehicle
+                                    Press 7 Get Vehicle by Type
+                                    Press 8 to add a Vehicle
+                                    Press 9 to remove a Vehicle
                                     Press 0 to exit
                                     Your Input: 
                                     """);
@@ -51,8 +53,23 @@ public class UserInterface {
                     String color = scanner.nextLine();
                     processGetByColorRequest(color);
                     break;
+                case "5":
+                    System.out.print("Enter the maximum number of mileage: ");
+                    int mileage = Integer.valueOf(scanner.nextLine());
+                    processGetByMileageRequest(mileage);
+                    break;
+                case "6":
+                    processGetAllVehiclesRequest();
+                    break;
+                case "7":
+                    System.out.print("Enter a vehicle type: ");
+                    String vehicleType = scanner.nextLine();
+                    processGetByVehicleTypeRequest(vehicleType);
+                    break;
+                case "8":
+                    System.out.println("remove a vehicle");
                 default:
-                    System.out.println("Sorry, I didn't understand that command.");
+                    System.out.print("Sorry, I didn't understand that command.");
                     break;
 
             }
@@ -62,7 +79,6 @@ public class UserInterface {
     }
     public void processGetByPriceRequest(double min, double max){
         printResults(dealership.getVehiclesByPriceRequest(min,max));
-
     }
     public void processGetByMakeModelRequest(String make, String model){
         printResults(dealership.getVehiclesByMakeModelRequest(make,model));
@@ -73,14 +89,15 @@ public class UserInterface {
     public void processGetByColorRequest(String color){
         printResults(dealership.getVehiclesByColorRequest(color));
     }
-    public void processGetByMileageRequest(){
+    public void processGetByMileageRequest(int mileage){
+        printResults(dealership.getByMileageRequest(mileage));
 
     }
-    public void processGetByVehicleTypeRequest(){
-
+    public void processGetByVehicleTypeRequest(String vehicleType){
+        printResults(dealership.getByVehicleTypeRequest(vehicleType));
     }
     public void processGetAllVehiclesRequest(){
-
+        printResults(dealership.getInventory());
     }
     public void processAddVehicleRequest(){
 

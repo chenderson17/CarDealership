@@ -92,7 +92,7 @@ public class Dealership {
     public List<Vehicle> getByVehicleTypeRequest(String type){
         List<Vehicle> result = new ArrayList<>();
         for(Vehicle v : inventory){
-            if(v.getVehicleType().equals(type)){
+            if(v.getVehicleType().equalsIgnoreCase(type)){
                 result.add(v);
             }
         }
@@ -103,7 +103,7 @@ public class Dealership {
         return inventory;
     }
     public List<Vehicle> removeVehicleRequest(int index){
-        inventory.remove(index);
+        inventory.remove(index - 1);
         return inventory;
     }
 

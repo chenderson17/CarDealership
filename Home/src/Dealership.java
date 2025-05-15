@@ -103,7 +103,7 @@ public class Dealership {
         return inventory;
     }
     public List<Vehicle> removeVehicleRequest(int index){
-        inventory.remove(index - 1);
+        this.inventory.remove(index - 1);
         return inventory;
     }
 

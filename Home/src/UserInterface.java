@@ -67,7 +67,11 @@ public class UserInterface {
                     processGetByVehicleTypeRequest(vehicleType);
                     break;
                 case "8":
-                    System.out.println("remove a vehicle");
+                    processGetAllVehiclesRequest();
+                    System.out.print("Enter the index of the vehicle you want to remove: ");
+                    int index = Integer.valueOf(scanner.nextLine());
+                   processRemoveVehicleRequest(index);
+                    break;
                 default:
                     System.out.print("Sorry, I didn't understand that command.");
                     break;
@@ -100,10 +104,10 @@ public class UserInterface {
         printResults(dealership.getInventory());
     }
     public void processAddVehicleRequest(){
-
     }
-    public void processRemoveVehicleRequest(){
-
+    public void processRemoveVehicleRequest(int index){
+        dealership.removeVehicleRequest(index);
+        printResults(dealership.getInventory());
     }
     //helper
     public void printResults(List<Vehicle> result){

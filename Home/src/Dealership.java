@@ -55,7 +55,7 @@ public class Dealership {
     public List<Vehicle> getVehiclesByMakeModelRequest(String make, String model){
         List<Vehicle> result = new ArrayList<>();
         for(Vehicle vehicle: inventory){
-            if(vehicle.getMake().toLowerCase().contains(make.toLowerCase()) && !make.isEmpty() || vehicle.getModel().toLowerCase().contains(model.toLowerCase()) && !model.isEmpty()){
+            if(vehicle.getMake().equalsIgnoreCase(make) && !make.isEmpty() || vehicle.getModel().equalsIgnoreCase(model) && !model.isEmpty()){
                 result.add(vehicle);
             }
         }
@@ -74,7 +74,7 @@ public class Dealership {
     public List<Vehicle> getVehiclesByColorRequest(String color){
         List<Vehicle> result = new ArrayList<>();
         for(Vehicle v : inventory){
-            if(v.getColor().toLowerCase().equals(color.toLowerCase())){
+            if(v.getColor().equalsIgnoreCase(color)){
                 result.add(v);
             }
         }

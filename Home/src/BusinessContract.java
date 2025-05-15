@@ -41,4 +41,18 @@ abstract class BusinessContract {
                 this.monthlyPayment
                     );
     }
+    public Date getDate(){
+        return this.date;
+    }
+    public String getCustomerName(){
+        return this.customerName;
+    }
+    public String getCustomerEmail(){
+        return this.customerEmail;
+    }
+    public boolean IsSold(){
+        return this.isSold;
+    }
+    abstract double getTotalPrice();
+    abstract double getMonthlyPayment();
 }

@@ -40,6 +40,9 @@ public class Dealership {
     public void changeInventory(ArrayList<Vehicle> inventory){
         this.inventory = inventory;
     }
+    public void addVehicle(Vehicle v){
+        inventory.add(v);
+    }
 
     //Search Methods
     public List<Vehicle> getVehiclesByPriceRequest(double min, double max){

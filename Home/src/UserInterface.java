@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -8,7 +9,7 @@ public class UserInterface {
     UserInterface(Dealership dealership){
         this.dealership = dealership;
     }
-    public void display(){
+    public void display() throws IOException {
 
         String menu = String.format("""
                                     Press 1 to filter Vehicles by Price Request
@@ -70,8 +71,28 @@ public class UserInterface {
                     processGetAllVehiclesRequest();
                     System.out.print("Enter the index of the vehicle you want to remove: ");
                     int index = Integer.valueOf(scanner.nextLine());
-                   processRemoveVehicleRequest(index);
+                    processRemoveVehicleRequest(index);
                     break;
+                case "9":
+                    System.out.print("Enter the vin: ");
+                    int vin = Integer.valueOf(scanner.nextLine());
+                    System.out.print("Enter the year: ");
+                    int newYear = Integer.valueOf(scanner.nextLine());
+                    System.out.print("Enter the make: ");
+                    String newMake = scanner.nextLine();
+                    System.out.print("Enter the model: ");
+                    String newModel = scanner.nextLine();
+                    System.out.print("Enter the vehicle type: ");
+                    String newVehicleType = scanner.nextLine();
+                    System.out.print("Enter the color: ");
+                    String newColor = scanner.nextLine();
+                    System.out.print("Enter the odometer: ");
+                    int newOdometer = Integer.valueOf(scanner.nextLine());
+                    System.out.print("Enter the price: ");
+                    double newPrice = Double.valueOf(scanner.nextLine());
+                    processAddVehicleRequest(vin,newYear, newMake,  newModel,  newVehicleType, newColor, newOdometer, newPrice);
+                    UpdateFile fileUpdate = new UpdateFile();
+                    fileUpdate.writeToInventory(vin,newYear,newMake,newModel,newVehicleType,newColor,newOdometer,newPrice);
                 default:
                     System.out.print("Sorry, I didn't understand that command.");
                     break;
@@ -103,7 +124,8 @@ public class UserInterface {
     public void processGetAllVehiclesRequest(){
         printResults(dealership.getInventory());
     }
-    public void processAddVehicleRequest(){
+    public void processAddVehicleRequest(int vin, int year, String make, String model, String vehicleType,String color, int odometer,double price){
+        dealership.addVehicle(new Vehicle(vin, year, make, model, vehicleType, color, odometer, price));
     }
     public void processRemoveVehicleRequest(int index){
         dealership.removeVehicleRequest(index);

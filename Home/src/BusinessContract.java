@@ -23,4 +23,22 @@ abstract class BusinessContract {
         this.monthlyPayment = monthlyPayment;
 
     }
+    @Override
+    public String toString(){
+        return String.format("""
+                      %s
+                      %s
+                      %s
+                      %s
+                      %.2f
+                      %.2f
+                      """,
+                this.date,
+                this.customerName,
+                this.customerEmail,
+                this.isSold,
+                this.totalPrice,
+                this.monthlyPayment
+                    );
+    }
 }

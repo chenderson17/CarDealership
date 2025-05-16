@@ -19,8 +19,8 @@ public class UserInterface {
                                     Press 5 to filter Vehicles by Mileage
                                     Press 6 to get all Vehicles
                                     Press 7 Get Vehicle by Type
-                                    Press 8 to add a Vehicle
-                                    Press 9 to remove a Vehicle
+                                    Press 8 to remove a Vehicle
+                                    Press 9 to add a Vehicle
                                     Press 0 to exit
                                     Your Input: 
                                     """);

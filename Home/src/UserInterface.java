@@ -74,25 +74,32 @@ public class UserInterface {
                     processRemoveVehicleRequest(index);
                     break;
                 case "9":
-                    System.out.print("Enter the vin: ");
-                    int vin = Integer.valueOf(scanner.nextLine());
-                    System.out.print("Enter the year: ");
-                    int newYear = Integer.valueOf(scanner.nextLine());
-                    System.out.print("Enter the make: ");
-                    String newMake = scanner.nextLine();
-                    System.out.print("Enter the model: ");
-                    String newModel = scanner.nextLine();
-                    System.out.print("Enter the vehicle type: ");
-                    String newVehicleType = scanner.nextLine();
-                    System.out.print("Enter the color: ");
-                    String newColor = scanner.nextLine();
-                    System.out.print("Enter the odometer: ");
-                    int newOdometer = Integer.valueOf(scanner.nextLine());
-                    System.out.print("Enter the price: ");
-                    double newPrice = Double.valueOf(scanner.nextLine());
-                    processAddVehicleRequest(vin,newYear, newMake,  newModel,  newVehicleType, newColor, newOdometer, newPrice);
-                    UpdateFile fileUpdate = new UpdateFile();
-                    fileUpdate.writeToInventory(vin,newYear,newMake,newModel,newVehicleType,newColor,newOdometer,newPrice);
+                    try {
+                        System.out.print("Enter the vin: ");
+                        int vin = Integer.valueOf(scanner.nextLine());
+                        System.out.print("Enter the year: ");
+                        int newYear = Integer.valueOf(scanner.nextLine());
+                        System.out.print("Enter the make: ");
+                        String newMake = scanner.nextLine();
+                        System.out.print("Enter the model: ");
+                        String newModel = scanner.nextLine();
+                        System.out.print("Enter the vehicle type: ");
+                        String newVehicleType = scanner.nextLine();
+                        System.out.print("Enter the color: ");
+                        String newColor = scanner.nextLine();
+                        System.out.print("Enter the odometer: ");
+                        int newOdometer = Integer.valueOf(scanner.nextLine());
+                        System.out.print("Enter the price: ");
+                        double newPrice = Double.valueOf(scanner.nextLine());
+                        processAddVehicleRequest(vin, newYear, newMake, newModel, newVehicleType, newColor, newOdometer, newPrice);
+                        UpdateFile fileUpdate = new UpdateFile();
+                        fileUpdate.writeToInventory(vin, newYear, newMake, newModel, newVehicleType, newColor, newOdometer, newPrice);
+                    }
+                    catch (Exception error){
+                        System.out.println("Incorrect input");
+                        break;
+                    }
+                    break;
                 default:
                     System.out.print("Sorry, I didn't understand that command.");
                     break;

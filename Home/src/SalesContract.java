@@ -8,7 +8,7 @@ public class SalesContract {
         processingFee = vehiclePrice < 10000 ? 295 : 495;
         this.willFiance = willFiance;
         if(willFiance){
-            monthlyPayment = vehiclePrice > 10000 ? (vehiclePrice * (4.25/100.00)) * 48: (5.25/100) * 24;
+            monthlyPayment = vehiclePrice > 10000 ? (vehiclePrice * (4.25/100.00)) * 48 : (5.25/100) * 24;
         }
     }
 

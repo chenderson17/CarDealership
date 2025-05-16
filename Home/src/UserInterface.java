@@ -25,89 +25,99 @@ public class UserInterface {
                                     Your Input: 
                                     """);
         System.out.print(menu);
-        String in = scanner.nextLine();
-        while(!in.equals("0")){
-            switch (in){
-                case "1":
-                    System.out.print("Enter the minimum price: ");
-                    int min = scanner.nextInt();
-                    scanner.nextLine();
-                    System.out.print("Enter the maximum price: ");
-                    int max = scanner.nextInt();
-                    processGetByPriceRequest(min,max);
-                    scanner.nextLine();
-                    break;
-                case "2":
-                    System.out.print("Enter the make: ");
-                    String make = scanner.nextLine();
-                    System.out.print("Enter the model: ");
-                    String model = scanner.nextLine();
-                    processGetByMakeModelRequest(make,model);
-                    break;
-                case "3":
-                    System.out.print("Enter the year: ");
-                    String year = scanner.nextLine();
-                    processGetByYearRequest(year);
-                    break;
-                case "4":
-                    System.out.print("Enter the color: ");
-                    String color = scanner.nextLine();
-                    processGetByColorRequest(color);
-                    break;
-                case "5":
-                    System.out.print("Enter the maximum number of mileage: ");
-                    int mileage = Integer.valueOf(scanner.nextLine());
-                    processGetByMileageRequest(mileage);
-                    break;
-                case "6":
-                    processGetAllVehiclesRequest();
-                    break;
-                case "7":
-                    System.out.print("Enter a vehicle type: ");
-                    String vehicleType = scanner.nextLine();
-                    processGetByVehicleTypeRequest(vehicleType);
-                    break;
-                case "8":
-                    processGetAllVehiclesRequest();
-                    System.out.print("Enter the index of the vehicle you want to remove: ");
-                    int index = Integer.valueOf(scanner.nextLine());
-                    processRemoveVehicleRequest(index);
-                    break;
-                case "9":
-                    try {
-                        System.out.print("Enter the vin: ");
-                        int vin = Integer.valueOf(scanner.nextLine());
-                        System.out.print("Enter the year: ");
-                        int newYear = Integer.valueOf(scanner.nextLine());
-                        System.out.print("Enter the make: ");
-                        String newMake = scanner.nextLine();
-                        System.out.print("Enter the model: ");
-                        String newModel = scanner.nextLine();
-                        System.out.print("Enter the vehicle type: ");
-                        String newVehicleType = scanner.nextLine();
-                        System.out.print("Enter the color: ");
-                        String newColor = scanner.nextLine();
-                        System.out.print("Enter the odometer: ");
-                        int newOdometer = Integer.valueOf(scanner.nextLine());
-                        System.out.print("Enter the price: ");
-                        double newPrice = Double.valueOf(scanner.nextLine());
-                        processAddVehicleRequest(vin, newYear, newMake, newModel, newVehicleType, newColor, newOdometer, newPrice);
-                        UpdateFile fileUpdate = new UpdateFile();
-                        fileUpdate.writeToInventory(vin, newYear, newMake, newModel, newVehicleType, newColor, newOdometer, newPrice);
-                    }
-                    catch (Exception error){
-                        System.out.println("Incorrect input");
-                        break;
-                    }
-                    break;
-                default:
-                    System.out.print("Sorry, I didn't understand that command.");
-                    break;
 
+            String in = scanner.nextLine();
+            while (!in.equals("0")) {
+                try{
+                switch (in) {
+                    case "1":
+                        System.out.print("Enter the minimum price: ");
+                        int min = scanner.nextInt();
+                        scanner.nextLine();
+                        System.out.print("Enter the maximum price: ");
+                        int max = scanner.nextInt();
+                        processGetByPriceRequest(min, max);
+                        scanner.nextLine();
+                        break;
+
+                    case "2":
+                        System.out.print("Enter the make: ");
+                        String make = scanner.nextLine();
+                        System.out.print("Enter the model: ");
+                        String model = scanner.nextLine();
+                        processGetByMakeModelRequest(make, model);
+                        break;
+                    case "3":
+                        System.out.print("Enter the year: ");
+                        String year = scanner.nextLine();
+                        processGetByYearRequest(year);
+                        break;
+                    case "4":
+                        System.out.print("Enter the color: ");
+                        String color = scanner.nextLine();
+                        processGetByColorRequest(color);
+                        break;
+                    case "5":
+                        System.out.print("Enter the maximum number of mileage: ");
+                        int mileage = Integer.valueOf(scanner.nextLine());
+                        processGetByMileageRequest(mileage);
+                        break;
+                    case "6":
+                        processGetAllVehiclesRequest();
+                        break;
+                    case "7":
+                        System.out.print("Enter a vehicle type: ");
+                        String vehicleType = scanner.nextLine();
+                        processGetByVehicleTypeRequest(vehicleType);
+                        break;
+                    case "8":
+                        processGetAllVehiclesRequest();
+                        System.out.print("Enter the index of the vehicle you want to remove: ");
+                        int index = Integer.valueOf(scanner.nextLine());
+                        processRemoveVehicleRequest(index);
+                        break;
+                    case "9":
+                        try {
+                            System.out.print("Enter the vin: ");
+                            int vin = Integer.valueOf(scanner.nextLine());
+                            System.out.print("Enter the year: ");
+                            int newYear = Integer.valueOf(scanner.nextLine());
+                            System.out.print("Enter the make: ");
+                            String newMake = scanner.nextLine();
+                            System.out.print("Enter the model: ");
+                            String newModel = scanner.nextLine();
+                            System.out.print("Enter the vehicle type: ");
+                            String newVehicleType = scanner.nextLine();
+                            System.out.print("Enter the color: ");
+                            String newColor = scanner.nextLine();
+                            System.out.print("Enter the odometer: ");
+                            int newOdometer = Integer.valueOf(scanner.nextLine());
+                            System.out.print("Enter the price: ");
+                            double newPrice = Double.valueOf(scanner.nextLine());
+                            processAddVehicleRequest(vin, newYear, newMake, newModel, newVehicleType, newColor, newOdometer, newPrice);
+                            UpdateFile fileUpdate = new UpdateFile();
+                            fileUpdate.writeToInventory(vin, newYear, newMake, newModel, newVehicleType, newColor, newOdometer, newPrice);
+                        } catch (Exception error) {
+                            System.out.println("Incorrect input");
+                            break;
+                        }
+                        break;
+                    default:
+                        System.out.println("Sorry, I didn't understand that command.");
+                        break;
+                }
+
+                System.out.print(menu);
+                in = scanner.nextLine();
             }
-            System.out.print(menu);
-            in = scanner.nextLine();
-        }
+            catch (Exception error){
+                System.out.println("An error occured");
+                System.out.print(menu);
+                in = scanner.nextLine();
+            }
+            }
+
+
     }
     public void processGetByPriceRequest(double min, double max){
         printResults(dealership.getVehiclesByPriceRequest(min,max));
